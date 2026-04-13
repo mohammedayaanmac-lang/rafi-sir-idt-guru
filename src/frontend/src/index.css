@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk";
+    --font-body: "General Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.625rem;
+
+    --background: 0.98 0.008 230;
+    --foreground: 0.18 0.015 230;
+    --card: 1.0 0.004 230;
+    --card-foreground: 0.18 0.015 230;
+    --popover: 1.0 0.004 230;
+    --popover-foreground: 0.18 0.015 230;
+
+    --primary: 0.42 0.14 240;
+    --primary-foreground: 0.98 0.005 240;
+
+    --secondary: 0.45 0.18 280;
+    --secondary-foreground: 0.98 0.005 280;
+    --muted: 0.95 0.01 230;
+    --muted-foreground: 0.5 0.012 230;
+
+    --accent: 0.6 0.15 70;
+    --accent-foreground: 0.18 0.015 70;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.005 25;
+
+    --border: 0.9 0.008 230;
+    --input: 0.9 0.008 230;
+    --ring: 0.42 0.14 240;
+
+    --chart-1: 0.42 0.14 240;
+    --chart-2: 0.45 0.18 280;
+    --chart-3: 0.6 0.15 70;
+    --chart-4: 0.65 0.18 150;
+    --chart-5: 0.6 0.16 150;
+
+    --sidebar: 0.98 0.008 230;
+    --sidebar-foreground: 0.18 0.015 230;
+    --sidebar-primary: 0.42 0.14 240;
+    --sidebar-primary-foreground: 0.98 0.005 240;
+    --sidebar-accent: 0.95 0.01 230;
+    --sidebar-accent-foreground: 0.3 0.015 230;
+    --sidebar-border: 0.9 0.008 230;
+    --sidebar-ring: 0.42 0.14 240;
+  }
+
+  .dark {
+    --background: 0.13 0.012 230;
+    --foreground: 0.92 0.01 230;
+    --card: 0.17 0.015 230;
+    --card-foreground: 0.92 0.01 230;
+    --popover: 0.2 0.02 230;
+    --popover-foreground: 0.92 0.01 230;
+
+    --primary: 0.75 0.15 240;
+    --primary-foreground: 0.13 0.012 240;
+
+    --secondary: 0.7 0.18 280;
+    --secondary-foreground: 0.92 0.01 280;
+    --muted: 0.2 0.015 230;
+    --muted-foreground: 0.55 0.01 230;
+
+    --accent: 0.72 0.17 70;
+    --accent-foreground: 0.13 0.012 70;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.92 0.01 25;
+
+    --border: 0.26 0.015 230;
+    --input: 0.26 0.015 230;
+    --ring: 0.75 0.15 240;
+
+    --chart-1: 0.75 0.15 240;
+    --chart-2: 0.7 0.18 280;
+    --chart-3: 0.72 0.17 70;
+    --chart-4: 0.65 0.18 150;
+    --chart-5: 0.6 0.16 150;
+
+    --sidebar: 0.17 0.015 230;
+    --sidebar-foreground: 0.92 0.01 230;
+    --sidebar-primary: 0.75 0.15 240;
+    --sidebar-primary-foreground: 0.13 0.012 240;
+    --sidebar-accent: 0.2 0.015 230;
+    --sidebar-accent-foreground: 0.82 0.01 230;
+    --sidebar-border: 0.26 0.015 230;
+    --sidebar-ring: 0.75 0.15 240;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--background)),
+      oklch(var(--primary) / 0.05)
+    );
+  }
+
+  .gradient-accent {
+    background: linear-gradient(
+      90deg,
+      oklch(var(--primary)),
+      oklch(var(--secondary)),
+      oklch(var(--accent))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-effect {
+    background: oklch(var(--card) / 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid oklch(var(--border) / 0.2);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 8px 24px 0 oklch(var(--primary) / 0.12);
+  }
+
+  .shadow-subtle {
+    box-shadow: 0 2px 8px 0 oklch(var(--primary) / 0.06);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 oklch(var(--accent) / 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 8px oklch(var(--accent) / 0);
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "overview": "A professional coaching website for Rafi Sir – IDT Guru, a commerce educator specializing in GST, Customs, and FTP. Features a full content management system, password-protected admin panel, image uploads, email notifications for new enquiries, and complete control over all website content.",
+  "features": [
+    "Password-protected floating admin button",
+    "Full CMS to edit all website content including prices",
+    "Image uploads for hero, profile, and book covers",
+    "Email notifications to rafigowsi@gmail.com on new enquiries",
+    "Enquiry filtering and sorting by course, date, and name",
+    "Instant live updates when admin makes changes"
+  ],
+  "category": "education",
+  "tags": [
+    "coaching",
+    "education",
+    "cms",
+    "admin",
+    "gst",
+    "commerce"
+  ],
+  "last_updated": "2026-04-13T14:40:47.185Z"
+}

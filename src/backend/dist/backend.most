@@ -1,0 +1,105 @@
+// Version: 1.0.0
+type Achievement__870638676 =
+  {icon : Text; id : Nat; title : Text; value : Text};
+type Book__1013490752 =
+  {
+    coverImageId : Text;
+    description : Text;
+    edition : Text;
+    id : Nat;
+    subject : Text;
+    title : Text
+  };
+type ContactInfo__523742349 =
+  {email : Text; hours : Text; location : Text; phone : Text};
+type Course__387578171 =
+  {
+    duration : Text;
+    features : [Text];
+    id : Nat;
+    mode : Text;
+    name : Text;
+    price : Text
+  };
+type Enquiry__582474784 =
+  {
+    courseOrBook : Text;
+    email : Text;
+    id : Nat;
+    message : Text;
+    name : Text;
+    phone : Text;
+    timestamp : Timestamp__332338714
+  };
+type FAQ__764318758 = {answer : Text; id : Nat; order : Nat; question : Text};
+type HeroContent__869347799 = {ctaText : Text; subtitle : Text; title : Text};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type SiteImage__780564410 =
+  {
+    id : Nat;
+    name : Text;
+    section : Text;
+    uploadedAt : Timestamp__538222690;
+    url : Text
+  };
+type Testimonial__163531636 =
+  {
+    id : Nat;
+    isVisible : Bool;
+    qualification : Text;
+    rating : Nat;
+    studentName : Text;
+    text : Text
+  };
+type Timestamp__301639476 = Int;
+type Timestamp__332338714 = Timestamp__301639476;
+type Timestamp__538222690 = Timestamp__301639476;
+actor {
+  stable achievements :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Achievement__870638676]];
+      var elementIndex : Nat__490723111
+    };
+  stable books :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Book__1013490752]];
+      var elementIndex : Nat__490723111
+    };
+  stable var contactInfo : {var value : ?ContactInfo__523742349};
+  stable courses :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Course__387578171]];
+      var elementIndex : Nat__490723111
+    };
+  stable enquiries :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Enquiry__582474784]];
+      var elementIndex : Nat__490723111
+    };
+  stable faqs :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?FAQ__764318758]];
+      var elementIndex : Nat__490723111
+    };
+  stable var heroContent : {var value : ?HeroContent__869347799};
+  stable images :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?SiteImage__780564410]];
+      var elementIndex : Nat__490723111
+    };
+  stable var nextCmsId : {var value : Nat};
+  stable var nextId : {var value : Nat};
+  stable testimonials :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Testimonial__163531636]];
+      var elementIndex : Nat__490723111
+    }
+};

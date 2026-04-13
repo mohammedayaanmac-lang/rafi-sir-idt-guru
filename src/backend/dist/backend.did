@@ -1,0 +1,100 @@
+type Timestamp = int;
+type Testimonial = 
+ record {
+   id: nat;
+   isVisible: bool;
+   qualification: text;
+   rating: nat;
+   studentName: text;
+   "text": text;
+ };
+type SiteImage = 
+ record {
+   id: nat;
+   name: text;
+   section: text;
+   uploadedAt: Timestamp;
+   url: text;
+ };
+type HeroContent = 
+ record {
+   ctaText: text;
+   subtitle: text;
+   title: text;
+ };
+type FAQ = 
+ record {
+   answer: text;
+   id: nat;
+   order: nat;
+   question: text;
+ };
+type Enquiry = 
+ record {
+   courseOrBook: text;
+   email: text;
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   timestamp: Timestamp;
+ };
+type Course = 
+ record {
+   duration: text;
+   features: vec text;
+   id: nat;
+   mode: text;
+   name: text;
+   price: text;
+ };
+type ContactInfo = 
+ record {
+   email: text;
+   hours: text;
+   location: text;
+   phone: text;
+ };
+type Book = 
+ record {
+   coverImageId: text;
+   description: text;
+   edition: text;
+   id: nat;
+   subject: text;
+   title: text;
+ };
+type Achievement = 
+ record {
+   icon: text;
+   id: nat;
+   title: text;
+   value: text;
+ };
+service : {
+  deleteAchievement: (id: nat) -> ();
+  deleteBook: (id: nat) -> ();
+  deleteCourse: (id: nat) -> ();
+  deleteFAQ: (id: nat) -> ();
+  deleteSiteImage: (id: nat) -> ();
+  deleteTestimonial: (id: nat) -> ();
+  getAchievements: () -> (vec Achievement) query;
+  getBooks: () -> (vec Book) query;
+  getContactInfo: () -> (opt ContactInfo) query;
+  getCourses: () -> (vec Course) query;
+  getEnquiries: () -> (vec Enquiry) query;
+  getFAQs: () -> (vec FAQ) query;
+  getHeroContent: () -> (opt HeroContent) query;
+  getSiteImages: () -> (vec SiteImage) query;
+  getTestimonials: () -> (vec Testimonial) query;
+  setAchievement: (achievement: Achievement) -> (nat);
+  setBook: (book: Book) -> (nat);
+  setContactInfo: (info: ContactInfo) -> ();
+  setCourse: (course: Course) -> (nat);
+  setFAQ: (faq: FAQ) -> (nat);
+  setHeroContent: (content: HeroContent) -> ();
+  setSiteImage: (image: SiteImage) -> (nat);
+  setTestimonial: (testimonial: Testimonial) -> (nat);
+  submitEnquiry: (name: text, phone: text, email: text, courseOrBook: 
+   text, message: text) -> ();
+}
